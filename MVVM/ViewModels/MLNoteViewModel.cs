@@ -1,15 +1,5 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Input;
-
-
-using CommunityToolkit.Mvvm.ComponentModel;
-using CommunityToolkit.Mvvm.Input;
 using System.Windows.Input;
 using System;
 using System.Collections.Generic;
@@ -19,9 +9,9 @@ using System.Threading.Tasks;
 
 namespace MVVM.ViewModels;
 
-internal class NoteViewModel : ObservableObject, IQueryAttributable
+internal class MLNoteViewModel : ObservableObject, IQueryAttributable
 {
-    private Models.Note _note;
+    private Models.MLNote _note;
 
     public string Text
     {
@@ -43,14 +33,14 @@ internal class NoteViewModel : ObservableObject, IQueryAttributable
     public ICommand SaveCommand { get; private set; }
     public ICommand DeleteCommand { get; private set; }
 
-    public NoteViewModel()
+    public MLNoteViewModel()
     {
-        _note = new Models.Note();
+        _note = new Models.MLNote();
         SaveCommand = new AsyncRelayCommand(Save);
         DeleteCommand = new AsyncRelayCommand(Delete);
     }
 
-    public NoteViewModel(Models.Note note)
+    public MLNoteViewModel(Models.MLNote note)
     {
         _note = note;
         SaveCommand = new AsyncRelayCommand(Save);
@@ -74,14 +64,14 @@ internal class NoteViewModel : ObservableObject, IQueryAttributable
     {
         if (query.ContainsKey("load"))
         {
-            _note = Models.Note.Load(query["load"].ToString());
+            _note = Models.MLNote.Load(query["load"].ToString());
             RefreshProperties();
         }
     }
 
     public void Reload()
     {
-        _note = Models.Note.Load(_note.Filename);
+        _note = Models.MLNote.Load(_note.Filename);
         RefreshProperties();
     }
 

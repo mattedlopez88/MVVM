@@ -8,7 +8,7 @@ using System.Windows.Input;
 
 namespace MVVM.ViewModels
 {
-    internal class AboutViewModel
+    internal class MLAboutViewModel
     {
         public string Title => AppInfo.Name;
         public string Version => AppInfo.VersionString;
@@ -16,7 +16,7 @@ namespace MVVM.ViewModels
         public string Message => "This app is written in XAML and C# with .NET MAUI.";
         public ICommand ShowMoreInfoCommand { get; }
 
-        public AboutViewModel()
+        public MLAboutViewModel()
         {
             ShowMoreInfoCommand = new AsyncRelayCommand(ShowMoreInfo);
         }

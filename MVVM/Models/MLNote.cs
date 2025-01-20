@@ -7,13 +7,13 @@ using System.Threading.Tasks;
 
 namespace MVVM.Models;
 
-internal class Note
+internal class MLNote
 {
     public string Filename { get; set; }
     public string Text { get; set; }
     public DateTime Date { get; set; }
 
-    public Note()
+    public MLNote()
     {
         Filename = $"{Path.GetRandomFileName()}.notes.txt";
         Date = DateTime.Now;
@@ -26,7 +26,7 @@ internal class Note
     public void Delete() =>
         File.Delete(System.IO.Path.Combine(FileSystem.AppDataDirectory, Filename));
 
-    public static Note Load(string filename)
+    public static MLNote Load(string filename)
     {
         filename = System.IO.Path.Combine(FileSystem.AppDataDirectory, filename);
 
@@ -42,7 +42,7 @@ internal class Note
             };
     }
 
-    public static IEnumerable<Note> LoadAll()
+    public static IEnumerable<MLNote> LoadAll()
     {
         string appDataPath = FileSystem.AppDataDirectory;
 
@@ -50,7 +50,7 @@ internal class Note
 
                 .EnumerateFiles(appDataPath, "*.notes.txt")
 
-                .Select(filename => Note.Load(Path.GetFileName(filename)))
+                .Select(filename => MLNote.Load(Path.GetFileName(filename)))
 
                 .OrderByDescending(note => note.Date);
     }
