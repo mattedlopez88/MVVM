@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:viewModels="clr-namespace:MVVM.ViewModels"
              x:Class="MVVM.Views.MLAllNotePage"
-             Title="JFNotePage">
+             Title="Crear Nota de Matias">
     <ContentPage.BindingContext>
         <viewModels:MLNoteViewModel />
     </ContentPage.BindingContext>

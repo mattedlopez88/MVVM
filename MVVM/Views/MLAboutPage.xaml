@@ -3,10 +3,10 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:viewModels="clr-namespace:MVVM.ViewModels"
              x:Class="MVVM.Views.MLAboutPage"
-             Title="JFAboutPage">
+             Title="About page de Matias">
 
     <ContentPage.BindingContext>
-        <viewModels:JFAboutViewModel />
+        <viewModels:MLAboutViewModel />
     </ContentPage.BindingContext>
     <VerticalStackLayout Spacing="10" Margin="10">
         <HorizontalStackLayout Spacing="10">

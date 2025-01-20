@@ -27,13 +27,13 @@ internal class MLNotesViewModel : IQueryAttributable
 
     private async Task NewNoteAsync()
     {
-        await Shell.Current.GoToAsync(nameof(Views.NotePage));
+        await Shell.Current.GoToAsync(nameof(Views.MLAllNotePage));
     }
 
     private async Task SelectNoteAsync(ViewModels.MLNoteViewModel note)
     {
         if (note != null)
-            await Shell.Current.GoToAsync($"{nameof(Views.MLNotePage)}?load={note.Identifier}");
+            await Shell.Current.GoToAsync($"{nameof(Views.MLAllNotePage)}?load={note.Identifier}");
     }
 
     void IQueryAttributable.ApplyQueryAttributes(IDictionary<string, object> query)
